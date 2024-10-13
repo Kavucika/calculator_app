@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-Flask</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <h1 class="calculator-title">CALCULATOR</h1>  <!-- Added title -->
+        <form method="POST">
+            <input type="text" id="display" name="display" readonly>
+            <div class="grid-container">
+                <button type="button" onclick="clearDisplay()" class="clear">C</button>
+                <button type="button" onclick="appendNumber('0')">0</button>
+                <button type="button" onclick="appendNumber('.')">.</button>
+                <button type="button" class="operation" onclick="appendNumber('/')">&divide;</button>
+
+                <button type="button" onclick="appendNumber('1')">1</button>
+                <button type="button" onclick="appendNumber('2')">2</button>
+                <button type="button" onclick="appendNumber('3')">3</button>
+                <button type="button" class="operation" onclick="appendNumber('*')">&times;</button>
+
+                <button type="button" onclick="appendNumber('4')">4</button>
+                <button type="button" onclick="appendNumber('5')">5</button>
+                <button type="button" onclick="appendNumber('6')">6</button>
+                <button type="button" class="operation" onclick="appendNumber('-')">-</button>
+
+                <button type="button" onclick="appendNumber('7')">7</button>
+                <button type="button" onclick="appendNumber('8')">8</button>
+                <button type="button" onclick="appendNumber('9')">9</button>
+                <button type="button" class="operation" onclick="appendNumber('+')">+</button>
+
+                <button type="button" class="equal" onclick="calculateResult()">=</button>
+            </div>
+        </form>
+        {% if result is not none %}
+            <h3>Result: {{ result }}</h3>
+        {% endif %}
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendNumber(number) {
+            display.value += number;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.value = eval(display.value); // Evaluate the expression
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>

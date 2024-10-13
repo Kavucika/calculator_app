@@ -1,0 +1,90 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white; /* Change to black */
+}
+
+.calculator-title {
+    text-align: center; /* Center the text */
+    font-size: 2em; /* Increase font size */
+    margin: 10px 0 10px 0; /* Top and bottom margin set to 10px */
+    color: white; /* Darker color for the text */
+    font-family: 'Roboto', sans-serif; /* Use the Google Font */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    font-weight: bold; /* Make the font bold */
+}
+
+.calculator {
+    background-color: black; /* Set calculator background to black */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    border: 3px solid #e0e0e0;
+}
+
+.calculator input[type="text"] {
+    width: 100%;
+    padding: 20px; /* Increased padding for input */
+    font-size: 2em; /* Increased font size */
+    text-align: right;
+    margin-bottom: 15px; /* Increased margin */
+    border: 2px solid #e0e0e0; /* Border for input field */
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+}
+
+.grid-container button {
+    padding: 20px; /* Increased padding */
+    font-size: 1.5em;
+    border: 2px solid #e0e0e0; /* Border for buttons */
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Added transform for button press effect */
+}
+
+.grid-container button.operation {
+    background-color: #ff9500;
+}
+
+.grid-container button.clear {
+    background-color: #e74c3c;
+}
+
+.grid-container button.equal {
+    background-color: #00bfff;
+    grid-column: span 4; /* Span the equal button across all four columns */
+}
+
+.grid-container button:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.grid-container button.operation:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+.grid-container button.clear:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.grid-container button.equal:hover {
+    background-color: #009acd;
+    transform: scale(1.05);
+}
